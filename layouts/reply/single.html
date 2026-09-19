@@ -1,0 +1,25 @@
+{{ define "main" }}
+<article class="h-entry post">
+	<header>
+		{{ with .Title }}
+		<h1 class="p-name">{{ . }}</h1>
+		{{ end }}
+		<p class="post-date">
+			<a class="u-url" href="{{ .Permalink }}"><time class="dt-published" datetime="{{ .Date.Format "2006-01-02T15:04:05-0700" }}">{{ .Date.Format "January 2, 2006" }}</time></a>
+		</p>
+	</header>
+	<p class="reply-context">
+		Replying to: <img src="{{ .Params.reply_to_avatar }}" width="22" height="22" alt="{{ .Params.reply_to_username }}">
+		{{ if eq .Params.reply_to_hostname "micro.blog" }}
+			<a href="{{ .Params.reply_to_url }}" class="u-in-reply-to">@{{ .Params.reply_to_username }}</a>
+		{{ else }}
+			<a href="{{ .Params.reply_to_url }}" class="u-in-reply-to">{{ .Params.reply_to_hostname }}</a>
+		{{ end }}
+	</p>
+	<section class="e-content post-body">
+		{{ .Content }}
+	</section>
+
+	{{ partial "microblog_syndication.html" . }}
+</article>
+{{ end }}

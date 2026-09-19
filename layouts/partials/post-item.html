@@ -1,0 +1,12 @@
+<li>
+	<article class="h-entry">
+		{{ if .Title }}
+		<h2 class="p-name"><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+		{{ end }}
+		<div class="e-content post-body">{{ .Content }}</div>
+		<p class="post-date">
+			<a href="{{ .Permalink }}" class="u-url"><time class="dt-published" datetime="{{ .Date.Format "2006-01-02T15:04:05-0700" }}">{{ .Date.Format "3:04 PM, Jan 2" }}</time></a>
+			{{- with .Params.categories }} &middot; {{ range . }}<a class="p-category" href="{{ "/categories/" | relURL }}{{ . | urlize }}/">{{ . }}</a> {{ end }}{{ end -}}
+		</p>
+	</article>
+</li>

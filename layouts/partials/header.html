@@ -1,0 +1,21 @@
+<header>
+	{{ if .IsHome }}
+	<h1 class="site-title p-name"><a class="u-url" href="{{ "/" | relURL }}">{{ .Site.Title }}</a></h1>
+	{{ else }}
+	<p class="site-title"><a href="{{ "/" | relURL }}">{{ .Site.Title }}</a></p>
+	{{ end }}
+	{{ with .Site.Params.description }}
+	<p class="site-description">{{ . | safeHTML }}</p>
+	{{ end }}
+	<nav class="main-nav">
+		{{ if not .IsHome }}<a href="{{ "/" | relURL }}">Home</a>{{ end }}
+		{{ range .Site.Menus.main }}
+			{{ if .Page.Params.redirect }}
+				<a href="{{ .Page.Params.redirect }}">{{ .Name }}</a>
+			{{ else }}
+				<a href="{{ .URL | relLangURL | safeURL }}">{{ .Name }}</a>
+			{{ end }}
+		{{ end }}
+	</nav>
+	<hr>
+</header>

@@ -1,0 +1,12 @@
+<div class="photos-grid">
+
+{{- $list := where .Site.Pages ".Params.photos" "!=" nil -}}
+{{ range $list }}
+	<a href="{{ .Permalink }}">
+		{{ range first 1 .Params.photos }}
+			<img src="https://micro.blog/photos/600/{{ . }}" alt="" loading="lazy" />
+		{{ end }}
+	</a>
+{{ end }}
+
+</div>

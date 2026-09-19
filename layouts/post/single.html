@@ -1,0 +1,38 @@
+{{ define "main" }}
+<article class="h-entry post">
+	<header>
+		{{ with .Title }}
+		<h1 class="p-name">{{ . }}</h1>
+		{{ end }}
+		<p class="post-date">
+			<a class="u-url" href="{{ .Permalink }}"><time class="dt-published" datetime="{{ .Date.Format "2006-01-02T15:04:05-0700" }}">{{ .Date.Format "January 2, 2006" }}</time></a>
+			{{- with .Params.categories }} &middot; {{ range . }}<a class="p-category" href="{{ "/categories/" | relURL }}{{ . | urlize }}/">{{ . }}</a> {{ end }}{{ end -}}
+		</p>
+		{{ with .Params.audio }}
+		<script type="text/javascript" src="https://micro.blog/narration.js?url={{ . }}"></script>
+		{{ end }}
+	</header>
+	<section class="e-content post-body">
+		{{ .Content }}
+	</section>
+
+	{{ partial "microblog_syndication.html" . }}
+
+	{{ if .Site.Params.include_conversation }}
+	<script type="text/javascript" src="https://micro.blog/conversation.js?url={{ .Permalink }}"></script>
+	{{ end }}
+
+	<hr>
+	<p class="post-author p-author h-card">
+		<a href="{{ "/" | relURL }}" class="u-url">
+			{{ if .Params.author }}
+			<img class="u-photo avatar" src="{{ .Params.author.avatar }}" width="48" height="48">
+			<span class="p-name">{{ .Params.author.name }}</span>
+			{{ else }}
+			<img class="u-photo avatar" src="{{ .Site.Params.author.avatar }}" width="48" height="48">
+			<span class="p-name">{{ .Site.Params.author.name }}</span>
+			{{ end }}
+		</a>
+	</p>
+</article>
+{{ end }}

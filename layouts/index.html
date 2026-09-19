@@ -1,0 +1,24 @@
+{{ define "main" }}
+
+<ul class="post-list h-feed">
+
+{{ if .Site.Params.paginate_home }}
+	{{ $paginator := .Paginate (where .Site.Pages.ByDate.Reverse "Type" "post") }}
+	{{ $list := $paginator.Pages }}
+	{{ range $list }}
+		{{ partial "post-item.html" . }}
+	{{ end }}
+{{ else }}
+	{{ $list := where .Site.Pages.ByDate.Reverse "Type" "post" }}
+	{{ range $list }}
+		{{ partial "post-item.html" . }}
+	{{ end }}
+{{ end }}
+
+</ul>
+
+{{ if .Site.Params.paginate_home }}
+	{{ partial "pagination.html" . }}
+{{ end }}
+
+{{ end }}
