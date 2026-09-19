@@ -1,12 +1,9 @@
 name = "Better Motherfucking Website"
 license = "MIT"
-licenselink = "https://github.com/jamwil/bmfw-micro/blob/main/LICENSE"
 description = "A micro.blog compatible Hugo theme based on bettermotherfuckingwebsite.com. Minimal, readable, and fast."
-homepage = "https://github.com/jamwil/bmfw-micro"
 tags = ["minimal", "microblog", "blog", "responsive", "microformats"]
 features = ["microformats2", "json-feed", "webmention", "micropub", "indieauth"]
 min_version = "0.91.0"
 
 [author]
   name = "jamwil"
-  homepage = "https://github.com/jamwil"
