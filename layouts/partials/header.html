@@ -1,9 +1,5 @@
 <header>
-	{{ if .IsHome }}
 	<h1 class="site-title p-name"><a class="u-url" href="{{ "/" | relURL }}">{{ .Site.Title }}</a></h1>
-	{{ else }}
-	<p class="site-title"><a href="{{ "/" | relURL }}">{{ .Site.Title }}</a></p>
-	{{ end }}
 	{{ with .Site.Params.description }}
 	<p class="site-description">{{ . | safeHTML }}</p>
 	{{ end }}

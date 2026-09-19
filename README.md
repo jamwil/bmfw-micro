@@ -42,6 +42,33 @@ No webfonts. No JavaScript. No frameworks. Still loads instantly.
    into **Install from a GitHub URL**.
 3. Go to **Design** and select **Better Motherfucking Website** as your blog's theme.
 
+## Customizing
+
+### Site description
+
+The description shown under the site title comes from Micro.blog's `description`
+parameter, which defaults to "Follow @username on Micro.blog". To change it:
+
+1. On Micro.blog, go to **Design → Edit Theme**.
+2. Edit `config.json` if it exists, otherwise click **New Template** to create it.
+3. Add your description:
+
+```json
+{
+	"params": {
+		"description": "My blog description here."
+	}
+}
+```
+
+HTML is allowed in the description. Alternatively, install Micro.blog's
+"About me" plug-in, which sets it for you.
+
+### Site title
+
+The site title is your blog's title in Micro.blog's settings (**Settings →
+your blog → Title**).
+
 ## Using it as a plain Hugo theme
 
 Clone it into your site's `themes` directory and set `theme = "bmfw-micro"` in
