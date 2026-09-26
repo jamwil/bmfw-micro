@@ -1,32 +1,15 @@
-/*
- * Better Motherfucking Website
- * The original 7 declarations, verbatim.
- * http://bettermotherfuckingwebsite.com/
- */
 body {
 	margin: 40px auto;
 	max-width: 650px;
-	line-height: 1.6;
-	font-size: 18px;
-	color: #444;
+	line-height: 1.2;
 	padding: 0 10px;
 }
-h1, h2, h3 {
-	line-height: 1.2;
-}
 
-/*
- * The minimal extras a blog actually needs.
- * No webfonts. No JavaScript. No frameworks. Still loads instantly.
- */
-
-/* Don't let photos overflow the layout. */
 img {
 	max-width: 100%;
 	height: auto;
 }
 
-/* Quotes shouldn't look like a crime scene. */
 blockquote {
 	margin: 1em 0;
 	padding-left: 1em;
@@ -34,7 +17,6 @@ blockquote {
 	color: #555;
 }
 
-/* Code that doesn't make your eyes bleed. */
 code, pre {
 	font-size: 0.9em;
 	background: #f2f2f2;
